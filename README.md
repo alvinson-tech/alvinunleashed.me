@@ -1,7 +1,8 @@
 # Personal Website  
 
 ## Overview  
-This is my personal website, built using HTML and CSS. It serves as an online portfolio, showcasing my projects, skills, and experiences in web development and programming. The website is designed with a clean, modern look for easy navigation and to highlight my passion for technology and innovation.  
+This is my personal website, built using HTML and CSS. It serves as an online portfolio, showcasing my projects, skills, and experiences in web development and programming. 
+The website is designed with a clean, modern look for easy navigation and to highlight my passion for technology and innovation.  
 
 ---
 
