@@ -7,333 +7,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Space Mono', monospace;
-        }
-
-        body {
-            background-color: #f8fafc;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #2563eb;
-            color: white;
-            padding: 4rem 2rem;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .header-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-pic:hover {
-            transform: scale(1.05);
-        }
-
-        .header-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header-text h2 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            margin-bottom: 0.5rem;
-        }
-
-        main {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 16px;
-            margin-top: -2rem;
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-        }
-
-        h2.section-title {
-            color: #1e40af;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            border-bottom: 2px solid rgba(37, 99, 235, 0.3);
-            padding-bottom: 0.5rem;
-        }
-
-        .about-points {
-            list-style: none;
-        }
-
-        .about-points li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .about-points li::before {
-            content: "▹";
-            color: #2563eb;
-            position: absolute;
-            left: 0;
-        }
-
-        .education-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-            background: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .education-item:hover {
-            transform: translateX(10px);
-        }
-
-        .education-item h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-item {
-            padding: 1rem;
-            border-radius: 4px;
-            text-align: center;
-            transition: all 0.3s ease;
-            background: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-        }
-
-        .skill-item:hover {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .projects-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .project-item {
-            background: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .project-item:hover {
-            background: #e8eaf6;
-            transform: translateX(10px);
-        }
-
-        .project-item h3 {
-            color: #1e40af;
-            margin-bottom: 0.5rem;
-        }
-
-        .github-container {
-            text-align: center;
-        }
-
-        .github-card {
-            background: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .github-card:hover {
-            transform: translateY(-5px);
-            background: #e8eaf6;
-        }
-
-        .github-icon {
-            width: 60px;
-            height: 60px;
-            transition: transform 0.3s ease;
-        }
-
-        .github-link {
-            color: #1e40af;
-            border: 2px solid #1e40af;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .github-link:hover {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            color: white;
-        }
-
-        .contact-container {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            background: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-            background: #e8eaf6;
-        }
-
-        .contact-item h3 {
-            color: #1e40af;
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #333;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: #2563eb;
-            transform: translateX(5px);
-        }
-
-        .contact-icon {
-            font-size: 1.25rem;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-pic {
-                width: 150px;
-                height: 150px;
-            }
-
-            header {
-                padding: 2rem 1rem;
-            }
-
-            .header-text h1 {
-                font-size: 2rem;
-            }
-
-            main {
-                padding: 1rem;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .github-card {
-                padding: 1.5rem;
-            }
-
-            .social-links {
-                gap: 0.75rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="matrix-background">
+        <div class="matrix-dots"></div>
+    </div>
     <header>
+        <button class="audio-control" onclick="toggleAudio()">
+            <div class="music-icon">
+                <i class="fas fa-music"></i>
+                <i class="fas fa-play"></i>
+                <i class="fas fa-pause"></i>
+            </div>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="background.mp3" type="audio/mpeg">
+        </audio>
         <div class="header-content">
             <img src="pp.png" alt="Alvin Sonny" class="profile-pic">
             <div class="header-text">
                 <h1>Alvin Sonny</h1>
-                <h2>Computer Science Engineering Student</h2>
-                <p>Aspiring Software Developer & Robotics Enthusiast</p>
+                <h2>Aspiring Software Developer & Robotics Enthusiast</h2>
+                <div class="typewriter" id="typewriter"></div>
             </div>
         </div>
     </header>
 
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active" data-section="about">
+                <i class="fas fa-user"></i> About
+            </div>
+            <div class="tab" data-section="education">
+                <i class="fas fa-graduation-cap"></i> Education
+            </div>
+            <div class="tab" data-section="skills">
+                <i class="fas fa-code"></i> Skills
+            </div>
+            <div class="tab" data-section="projects">
+                <i class="fas fa-project-diagram"></i> Projects
+            </div>
+            <div class="tab" data-section="github">
+                <i class="fab fa-github"></i> GitHub
+            </div>
+            <div class="tab" data-section="contact">
+                <i class="fas fa-envelope"></i> Contact
+            </div>
+        </div>
+    </div>
+
     <main>
-        <section>
+        <!-- About Section -->
+        <section id="about" class="active">
             <h2 class="section-title">About Me</h2>
             <ul class="about-points">
                 <li>I'm a 20-year-old from Kerala, a tech enthusiast with a love for music.</li>
@@ -344,7 +71,8 @@
             </ul>
         </section>
 
-        <section>
+        <!-- Education Section -->
+        <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="education-item">
                 <h3>MVJ College of Engineering</h3>
@@ -361,21 +89,19 @@
             </div>
         </section>
 
-        <section>
+        <!-- Skills Section -->
+        <section id="skills">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                <div class="skill-item">Robotics</div>
-                <div class="skill-item">Web Development</div>
-                <div class="skill-item">App Development</div>
                 <div class="skill-item">Communication</div>
-                <div class="skill-item">Leadership</div>
                 <div class="skill-item">Problem Solving</div>
                 <div class="skill-item">Team Management</div>
                 <div class="skill-item">Project Planning</div>
             </div>
         </section>
 
-        <section>
+        <!-- Projects Section -->
+        <section id="projects">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-item">
@@ -397,7 +123,8 @@
             </div>
         </section>
 
-        <section>
+        <!-- GitHub Section -->
+        <section id="github">
             <h2 class="section-title">GitHub</h2>
             <div class="github-container">
                 <div class="github-card">
@@ -410,7 +137,8 @@
             </div>
         </section>
 
-        <section>
+        <!-- Contact Section -->
+        <section id="contact">
             <h2 class="section-title">Contact</h2>
             <div class="contact-container">
                 <div class="contact-item">
@@ -437,6 +165,150 @@
             </div>
         </section>
     </main>
+
+    <script>
+        // Fixed tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const sections = document.querySelectorAll('section');
+    
+            // Initially show only About section
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('about').style.display = 'block';
+    
+            // Add click handlers to tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+    
+                    // Show selected section
+                    const sectionId = tab.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.style.display = 'block';
+                    }
+                });
+            });
+        });
+    
+        let audioCtx = null;
+        let gainNode = null;
+        let audioElement = null;
+        let audioSource = null;
+        let isPlaying = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                audioElement = document.getElementById('bgMusic');
+                audioSource = audioCtx.createMediaElementSource(audioElement);
+                gainNode = audioCtx.createGain();
+                audioSource.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                gainNode.gain.value = 0;
+            }
+        }
+
+        function fadeAudio(start, end, duration) {
+            initAudio();
+            const now = audioCtx.currentTime;
+            gainNode.gain.setValueAtTime(start, now);
+            gainNode.gain.linearRampToValueAtTime(end, now + duration);
+        }
+
+        function toggleAudio() {
+            initAudio();
+            const musicIcon = document.querySelector('.music-icon');
+            
+            if (isPlaying) {
+                // Fade out audio
+                fadeAudio(1, 0, 1);
+                setTimeout(() => {
+                    audioElement.pause();
+                }, 1000);
+                
+                // Switch back to idle animation
+                musicIcon.classList.remove('playing');
+                musicIcon.classList.add('idle');
+            } else {
+                audioElement.play();
+                // Fade in audio
+                fadeAudio(0, 1, 1);
+                
+                // Switch to playing state
+                musicIcon.classList.remove('idle');
+                musicIcon.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Initialize button state when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicIcon = document.querySelector('.music-icon');
+            musicIcon.classList.add('idle');
+        });
+
+        // Initialize audio context on first user interaction
+        document.addEventListener('click', function initializeAudio() {
+            initAudio();
+            document.removeEventListener('click', initializeAudio);
+        }, { once: true });
+    
+        // Typewriter effect
+        const motivationalQuotes = [
+            "Turn dreams into reality through code",
+            "Innovation is the key to tomorrow",
+            "Building the future, one line at a time",
+            "Creating solutions that matter",
+            "Technology with purpose"
+        ];
+    
+        let currentQuote = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+        let typewriterElement;
+    
+        function typeWriter() {
+            if (!typewriterElement) {
+                typewriterElement = document.getElementById('typewriter');
+            }
+            
+            const quote = motivationalQuotes[currentQuote];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = quote.substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                typewriterElement.textContent = quote.substring(0, currentChar + 1);
+                currentChar++;
+            }
+    
+            if (!isDeleting && currentChar === quote.length) {
+                setTimeout(() => isDeleting = true, 1500);
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentQuote = (currentQuote + 1) % motivationalQuotes.length;
+            }
+    
+            const typeSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeWriter, typeSpeed);
+        }
+    
+        // Start typewriter effect when page loads
+        window.addEventListener('load', function() {
+            typeWriter();
+        });
+    </script>
 
     <footer>
         <p>© 2024 Alvin Sonny. All rights reserved.</p>
