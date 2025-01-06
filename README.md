@@ -1,19 +1,23 @@
-# Personal Website  
+# Portfolio Website 🚀💻
 
-## Overview  
-This is my personal website, built using HTML and CSS. It serves as an online portfolio, showcasing my projects, skills, and experiences in web development and programming. 
-The website is designed with a clean, modern look for easy navigation and to highlight my passion for technology and innovation.  
+Welcome to my **Portfolio**!  
+Explore my projects, skills, and creative work in the field of technology and development. 
+This is where you can see what I’m passionate about and the projects I’ve been working on!
+
+## Features:
+- **Project Showcase**: Explore a variety of projects I’ve worked on, from websites to apps.
+- **Skill Highlights**: Get to know the technologies and tools I work with.
+- **Contact Me**: Reach out via email for collaborations or inquiries.
+- **Responsive Design**: Accessible on desktop, tablet, and mobile.
+
+## How to Use:
+1. Browse through the sections to see my projects, skills, and background.
+2. Check out the individual project details with descriptions and links.
+3. Feel free to contact me through the provided email for any collaboration opportunities.
+
+## Technologies Used:
+- **Frontend**: HTML, CSS, JavaScript
 
 ---
 
-## Features  
-- Display of personal projects and technical skills.  
-- Clean and modern design for optimal user experience.  
-- Responsive layout for use on both desktop and mobile devices.  
-- Easy-to-navigate interface showcasing my work and achievements.  
-
----
-
-## Technologies Used  
-- **HTML**: For the structure and content of the website.  
-- **CSS**: For styling and layout to create a visually appealing design.  
+**Author:** Alvin Sonny
