@@ -3,315 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alvin Sonny</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Update</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2c2c2c;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        /* Glass container */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 4px 16px rgba(0, 0, 0, 0.05);
+            padding: 80px 60px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 50px;
+            color: #666;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .loading-container {
+            margin: 40px 0;
+        }
+
+        /* Simple bold loading spinner */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(102, 102, 102, 0.2);
+            border-top: 5px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 40px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .info-text {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 30px;
+        }
+
+        /* Enhanced gradient circles */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .gradient-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .gradient-circle:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0.2) 50%, transparent 100%);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .gradient-circle:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(249, 115, 22, 0.2) 50%, transparent 100%);
+            top: 50%;
+            right: 15%;
+            animation-delay: 7s;
+        }
+
+        .gradient-circle:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 100%);
+            bottom: 20%;
+            left: 40%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.7;
+            }
+            33% {
+                transform: translateY(-40px) translateX(30px) scale(1.1);
+                opacity: 0.9;
+            }
+            66% {
+                transform: translateY(-20px) translateX(-20px) scale(0.9);
+                opacity: 0.6;
+            }
+        }
+
+        /* Subtle glow effect for glass container */
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .glass-container {
+                margin: 20px;
+                padding: 50px 30px;
+                width: 85%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .spinner {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="matrix-background">
-        <div class="matrix-dots"></div>
-    </div>
-    <header>
-        <button class="audio-control" onclick="toggleAudio()">
-            <div class="music-icon">
-                <i class="fas fa-music"></i>
-                <i class="fas fa-play"></i>
-                <i class="fas fa-pause"></i>
-            </div>
-        </button>
-        <audio id="bgMusic" loop>
-            <source src="background.mp3" type="audio/mpeg">
-        </audio>
-        <div class="header-content">
-            <img src="pp.png" alt="Alvin Sonny" class="profile-pic">
-            <div class="header-text">
-                <h1>Alvin Sonny</h1>
-                <h2>Aspiring Software Developer & Robotics Enthusiast</h2>
-                <div class="typewriter" id="typewriter"></div>
-            </div>
-        </div>
-    </header>
-
-    <div class="tabs-container">
-        <div class="tabs">
-            <div class="tab active" data-section="about">
-                <i class="fas fa-user"></i> About
-            </div>
-            <div class="tab" data-section="education">
-                <i class="fas fa-graduation-cap"></i> Education
-            </div>
-            <div class="tab" data-section="skills">
-                <i class="fas fa-code"></i> Skills
-            </div>
-            <div class="tab" data-section="projects">
-                <i class="fas fa-project-diagram"></i> Projects
-            </div>
-            <div class="tab" data-section="github">
-                <i class="fab fa-github"></i> GitHub
-            </div>
-            <div class="tab" data-section="contact">
-                <i class="fas fa-envelope"></i> Contact
-            </div>
-        </div>
+    <div class="background-animation">
+        <div class="gradient-circle"></div>
+        <div class="gradient-circle"></div>
+        <div class="gradient-circle"></div>
     </div>
 
-    <main>
-        <!-- About Section -->
-        <section id="about" class="active">
-            <h2 class="section-title">About Me</h2>
-            <ul class="about-points">
-                <li>I'm a 20-year-old from Kerala, a tech enthusiast with a love for music.</li>
-                <li>Currently a Computer Science Engineering student at MVJ College of Engineering, Whitefield</li>
-                <li>Passionate about robotics and creating innovative solutions</li>
-                <li>Skilled & Experienced in Arduino-based electronic projects, Web/App development</li>
-                <li>Focused on building practical solutions that make a difference</li>
-            </ul>
-        </section>
+    <div class="glass-container">
+        <h1>Update in Progress</h1>
+        <p class="subtitle">We're currently updating our systems to serve you better.</p>
+        
+        <div class="loading-container">
+            <div class="spinner"></div>
+        </div>
 
-        <!-- Education Section -->
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="education-item">
-                <h3>MVJ College of Engineering</h3>
-                <p>Computer Science Engineering</p>
-                <p>Current</p>
-            </div>
-            <div class="education-item">
-                <h3>St. Vincent Pallotti PU College</h3>
-                <p>11th & 12th Grade</p>
-            </div>
-            <div class="education-item">
-                <h3>St. Antonys Public School</h3>
-                <p>1st to 10th Grade</p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">Communication</div>
-                <div class="skill-item">Problem Solving</div>
-                <div class="skill-item">Team Management</div>
-                <div class="skill-item">Project Planning</div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <h3>Splitzy</h3>
-                    <p>A comprehensive expense splitting application</p>
-                </div>
-                <div class="project-item">
-                    <h3>Attendance Management Website</h3>
-                    <p>Web-based solution for tracking and managing attendance</p>
-                </div>
-                <div class="project-item">
-                    <h3>Honeygain Profit Calculator</h3>
-                    <p>Tool for calculating profit sharing in Honeygain</p>
-                </div>
-                <div class="project-item">
-                    <h3>Arduino Projects</h3>
-                    <p>Various small-scale Arduino-based electronic projects</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- GitHub Section -->
-        <section id="github">
-            <h2 class="section-title">GitHub</h2>
-            <div class="github-container">
-                <div class="github-card">
-                    <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <h3>Check out my Projects on GitHub</h3>
-                    <a href="https://github.com/alvinson-tech" target="_blank" class="github-link">github.com/alvinson-tech</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-container">
-                <div class="contact-item">
-                    <h3>Reach me out on:</h3>
-                    <a href="mailto:alvinson.dev@gmail.com" class="contact-link">
-                        <span class="contact-icon">✉️</span>
-                        alvinson.tech@gmail.com
-                    </a>
-                </div>
-                
-                <div class="contact-item">
-                    <h3>Follow me on:</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/_alvin.son_/" target="_blank" class="contact-link">
-                            <span class="contact-icon">📸</span>
-                            Instagram
-                        </a>
-                        <a href="https://www.linkedin.com/in/alvinson-tech" target="_blank" class="contact-link">
-                            <span class="contact-icon">💼</span>
-                            LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // Fixed tab functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
-            const sections = document.querySelectorAll('section');
-    
-            // Initially show only About section
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('about').style.display = 'block';
-    
-            // Add click handlers to tabs
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
-                    tab.classList.add('active');
-    
-                    // Hide all sections
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-    
-                    // Show selected section
-                    const sectionId = tab.getAttribute('data-section');
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        section.style.display = 'block';
-                    }
-                });
-            });
-        });
-    
-        let audioCtx = null;
-        let gainNode = null;
-        let audioElement = null;
-        let audioSource = null;
-        let isPlaying = false;
-
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                audioElement = document.getElementById('bgMusic');
-                audioSource = audioCtx.createMediaElementSource(audioElement);
-                gainNode = audioCtx.createGain();
-                audioSource.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                gainNode.gain.value = 0;
-            }
-        }
-
-        function fadeAudio(start, end, duration) {
-            initAudio();
-            const now = audioCtx.currentTime;
-            gainNode.gain.setValueAtTime(start, now);
-            gainNode.gain.linearRampToValueAtTime(end, now + duration);
-        }
-
-        function toggleAudio() {
-            initAudio();
-            const musicIcon = document.querySelector('.music-icon');
-            
-            if (isPlaying) {
-                // Fade out audio
-                fadeAudio(1, 0, 1);
-                setTimeout(() => {
-                    audioElement.pause();
-                }, 1000);
-                
-                // Switch back to idle animation
-                musicIcon.classList.remove('playing');
-                musicIcon.classList.add('idle');
-            } else {
-                audioElement.play();
-                // Fade in audio
-                fadeAudio(0, 1, 1);
-                
-                // Switch to playing state
-                musicIcon.classList.remove('idle');
-                musicIcon.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-        }
-
-        // Initialize button state when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const musicIcon = document.querySelector('.music-icon');
-            musicIcon.classList.add('idle');
-        });
-
-        // Initialize audio context on first user interaction
-        document.addEventListener('click', function initializeAudio() {
-            initAudio();
-            document.removeEventListener('click', initializeAudio);
-        }, { once: true });
-    
-        // Typewriter effect
-        const motivationalQuotes = [
-            "Turn dreams into reality through code",
-            "Innovation is the key to tomorrow",
-            "Building the future, one line at a time",
-            "Creating solutions that matter",
-            "Technology with purpose"
-        ];
-    
-        let currentQuote = 0;
-        let currentChar = 0;
-        let isDeleting = false;
-        let typewriterElement;
-    
-        function typeWriter() {
-            if (!typewriterElement) {
-                typewriterElement = document.getElementById('typewriter');
-            }
-            
-            const quote = motivationalQuotes[currentQuote];
-            
-            if (isDeleting) {
-                typewriterElement.textContent = quote.substring(0, currentChar - 1);
-                currentChar--;
-            } else {
-                typewriterElement.textContent = quote.substring(0, currentChar + 1);
-                currentChar++;
-            }
-    
-            if (!isDeleting && currentChar === quote.length) {
-                setTimeout(() => isDeleting = true, 1500);
-            } else if (isDeleting && currentChar === 0) {
-                isDeleting = false;
-                currentQuote = (currentQuote + 1) % motivationalQuotes.length;
-            }
-    
-            const typeSpeed = isDeleting ? 50 : 100;
-            setTimeout(typeWriter, typeSpeed);
-        }
-    
-        // Start typewriter effect when page loads
-        window.addEventListener('load', function() {
-            typeWriter();
-        });
-    </script>
-
-    <footer>
-        <p>© 2025 Alvin Sonny. All rights reserved.</p>
-    </footer>
+        <div class="info-text">
+            Thank you for your patience. We'll be back online shortly.
+        </div>
+    </div>
 </body>
 </html>
